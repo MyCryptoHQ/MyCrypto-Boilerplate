@@ -35,6 +35,13 @@
     "start": "webpack-dev-server --config ./webpack_config/webpack.dev.js",
     "build": "webpack --config webpack_config/webpack.prod.js"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write --config ./.prettierrc --config-precedence file-override",
+      "git add"
+    ]
+  },
+  "prepush": "npm run tslint && npm run tscheck",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MyCryptoHQ/React-Typescript-Web3.git"
