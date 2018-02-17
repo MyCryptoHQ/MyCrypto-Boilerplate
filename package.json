@@ -1,0 +1,38 @@
+{
+  "name": "React-Typescript-Web3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "chalk": "^2.3.1",
+    "express": "^4.16.2",
+    "html-webpack-plugin": "^2.30.1",
+    "ts-loader": "^3.5.0",
+    "typescript": "^2.7.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-middleware": "^2.0.5",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node webpack_config/devServer.js",
+    "build": "Production=true webpack --config webpack_config/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyCryptoHQ/React-Typescript-Web3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyCryptoHQ/React-Typescript-Web3/issues"
+  },
+  "homepage": "https://github.com/MyCryptoHQ/React-Typescript-Web3#readme"
+}
