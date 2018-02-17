@@ -21,7 +21,10 @@ const config = merge(common, {
             loader: 'css-loader' // translates CSS into CommonJS
           },
           {
-            loader: 'sass-loader' // compiles Sass to CSS
+            loader: 'resolve-url-loader'
+          },
+          {
+            loader: 'sass-loader?sourceMap' // compiles Sass to CSS
           }
         ]
       }
