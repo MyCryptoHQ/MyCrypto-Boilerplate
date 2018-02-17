@@ -1,6 +1,24 @@
-import React from 'react';
-import { render } from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import App from './app';
 
-const Hello = () => <h1>Hello, world!</h1>;
+const root = document.getElementById('root');
+const render = (Component: () => JSX.Element) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    root
+  );
+};
 
-render(<Hello />, document.getElementById('root'));
+render(App);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+  module.hot.accept('./app', () => {
+    const App = require('./app').default;
+    render(App);
+  });
+}
