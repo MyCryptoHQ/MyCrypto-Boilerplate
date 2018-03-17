@@ -15,7 +15,7 @@ const paths = {
 };
 
 const config = {
-  entry: paths.src + '/index.tsx',
+  entry: paths.src + '/root.tsx',
   output: {
     filename: '[name].bundle.js',
     path: paths.output,
