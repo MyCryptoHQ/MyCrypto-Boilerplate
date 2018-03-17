@@ -12,21 +12,8 @@ const config = merge(common, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader' // creates style nodes from JS strings
-          },
-          {
-            loader: 'css-loader' // translates CSS into CommonJS
-          },
-          {
-            loader: 'resolve-url-loader'
-          },
-          {
-            loader: 'sass-loader?sourceMap' // compiles Sass to CSS
-          }
-        ]
+        test: /\.scss$|\.css$/,
+        use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap']
       }
     ]
   },

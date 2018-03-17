@@ -4,31 +4,51 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
+const paths = {
+  root: path.join(__dirname, '../'),
+  src: path.join(__dirname, '../src'),
+  output: path.join(__dirname, '../dist'),
+  assets: path.join(__dirname, '../src/assets'),
+  static: path.join(__dirname, '../public'),
+  modules: path.join(__dirname, '../node_modules')
+};
+
 const config = {
-  entry: './src/index.tsx',
+  entry: paths.src + '/index.tsx',
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: paths.output,
     publicPath: '/'
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        loaders: [
-          'react-hot-loader/webpack',
+        use: [
           {
-            loader: 'ts-loader',
-            options: { happyPackMode: true, logLevel: 'info' }
-          }
+            loader: 'babel-loader',
+            options: {
+              babelrc: true,
+              plugins: ['react-hot-loader/babel']
+            }
+          },
+          'ts-loader'
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: ['file-loader']
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader'
       }
     ]
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.sass', '.css'],
-    symlinks: false
+    modules: [paths.src, paths.modules, paths.root]
   },
   plugins: [
     new HtmlWebpackPlugin({ template: 'public/index.html' }),
