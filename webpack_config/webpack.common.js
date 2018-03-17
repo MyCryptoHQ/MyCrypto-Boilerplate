@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
@@ -51,6 +52,11 @@ const config = {
     modules: [paths.src, paths.modules, paths.root]
   },
   plugins: [
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, '../src/assets/imgs/favicon.png'),
+      background: '#fff',
+      inject: true
+    }),
     new HtmlWebpackPlugin({ template: 'public/index.html' }),
     new CleanWebpackPlugin(),
     new ExtractTextPlugin({
