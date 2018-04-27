@@ -1,5 +1,6 @@
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
+const WebpackBar = require('webpackbar')
 const webpack = require('webpack')
 
 const config = merge(common, {
@@ -21,6 +22,7 @@ const config = merge(common, {
 	plugins: [
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
+		new WebpackBar(),
 		new webpack.DefinePlugin({
 			'process.env.NODE_ENV': JSON.stringify('development'),
 		}),

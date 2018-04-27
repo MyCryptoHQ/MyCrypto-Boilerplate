@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src/",
     "outDir": "./dist/",
     "sourceMap": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "module": "commonjs",
-    "target": "es6",
+    "target": "es2017",
     "jsx": "react",
     "allowJs": true,
-    "baseUrl": "./src/",
     "noEmitOnError": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true
